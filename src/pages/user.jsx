@@ -1,21 +1,22 @@
 import React, { useEffect, useRef } from "react";
 
-
+import { NavLink } from "react-router-dom";
 import '../css/image.css'
 
 
 
 function Test() {
+
     let videoRef = useRef(null);
 
     let photoRef = useRef(null)
 
-   const getVideo= () => {
+    const getVideo = () => {
         navigator.mediaDevices
             .getUserMedia({
                 video: true
             })
-            .then((stream) =>{
+            .then((stream) => {
                 let video = videoRef.current;
                 video.srcObject = stream;
                 video.play();
@@ -47,20 +48,13 @@ function Test() {
         let photo = photoRef.current
 
         let ctx = photo.getContext('2d')
-        ctx.clearImage(0,0, photo.width, photo.height)
+        ctx.clearImage(0, 0, photo.width, photo.height)
     }
-   
-  
-    useEffect(() =>{
+
+
+    useEffect(() => {
         getVideo();
     }, [videoRef]);
-      
-
-    
-    
-     
-  
-
 
     return (
         <>
@@ -73,20 +67,20 @@ function Test() {
                             flexDirection: 'row',
                             justifyContent: 'space-between',
                             width: '100%',
-                            height: '100vh'
+                            height: '100%'
                         }}
                     >
 
 
                         <div className=" col-xs-4 text-primary h6 mx-4 my-2 d-flex">Upload doc</div>
                         <div className=' col col-xs-4 mx-4  '>
-                            {/* <h1 className="text-center">Camera Selfie App in React</h1> */}
+
 
                             <video ref={videoRef} className="conatiner"></video>
 
-                            <button onClick={takePicture} className="btn btn-danger container">Take Picture</button>
+                            <button onClick={takePicture} className="btn btn-danger container ">Take Picture</button>
 
-                            <canvas  className="container" ref={photoRef}></canvas>
+                            <canvas className="container" ref={photoRef}></canvas>
 
                             <button onClick={clearImage} className="btn btn-primary container">Capture camera</button>
 
@@ -102,11 +96,11 @@ function Test() {
                     </div>
                     <div className="position-relative">
                         <div className="position-absolute  end-0">
-                            {/* <NavLink to="/demo" > */}
-                            <button type="button" className="btn  w-20 border btn rounded-pill text-white" id="btnb"  >
-                                Next &rarr;
-                            </button>
-                            {/* </NavLink> */}
+                            <NavLink to="/demo" >
+                                <button type="button" className="btn  w-20 border btn rounded-pill text-white" id="btnb"  >
+                                    Next &rarr;
+                                </button>
+                            </NavLink>
                         </div>
                     </div>
 

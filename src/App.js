@@ -2,23 +2,23 @@ import logo from './logo.svg';
 import './App.css';
 import Test from '../src/pages/user'
 import Tests from './pages/users';
-import { Routes, Route } from 'react-router-dom'
+import { Route, Router, Routes } from "react-router-dom";
 
 
 
-function App() {
+const App = () => {
   return (
     <>
-      {/* <Routes>
+     <Routes>
         <Route path="/" element={<Test />} />
         <Route path="/demo" element={<Tests />} />
-      </Routes> */}
-
+      </Routes>
+     
 
 
       {/* <Routes> */}
-      <Test />
-      <Tests />
+      {/* <Test />
+      <Tests /> */}
       {/* </Routes> */}
     </>
   );
